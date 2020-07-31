@@ -1,4 +1,4 @@
-package com.example;
+package com.uiwjs.react.example.wechat;
 
 import com.facebook.react.ReactActivity;
 

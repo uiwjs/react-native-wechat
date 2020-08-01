@@ -17,4 +17,10 @@ export default class Wechat {
   static isWXAppInstalled() {
     return NativeModules.RNWechat.isWXAppInstalled();
   }
+  /**
+   * 判断当前微信的版本是否支持OpenApi，支持返回 true，不支持返回 false
+   */
+  static isWXAppSupportApi() {
+    return NativeModules.RNWechat.isWXAppSupportApi();
+  }
 }

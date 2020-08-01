@@ -61,4 +61,14 @@ RCT_REMAP_METHOD(isWXAppInstalled, :(RCTPromiseResolveBlock)resolve :(RCTPromise
         resolve(@NO);
     }
 }
+
+// 判断当前微信的版本是否支持OpenApi，支持返回YES，不支持返回NO。
+RCT_REMAP_METHOD(isWXAppSupportApi, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+    if ([WXApi isWXAppSupportApi]) {
+        resolve(@YES);
+    } else {
+        resolve(@NO);
+    }
+}
+
 @end

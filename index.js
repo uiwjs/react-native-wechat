@@ -1,7 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
 
-// const { RNWechat } = NativeModules;
-
 export default class Wechat {
   /**
    * 向微信注册应用
@@ -27,5 +25,11 @@ export default class Wechat {
    */
   static isWXAppSupportApi() {
     return NativeModules.RNWechat.isWXAppSupportApi();
+  }
+  /**
+   * 获取当前微信SDK的版本号
+   */
+  static getApiVersion() {
+    return NativeModules.RNWechat.getApiVersion();
   }
 }

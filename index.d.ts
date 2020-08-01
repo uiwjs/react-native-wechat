@@ -10,9 +10,13 @@ export function registerApp(appid: string, universalLink: string): void;
  * 检查微信是否已被用户安装  
  * 微信已安装返回 `true`，未安装返回 `false`。
  */
-export function isWXAppInstalled(): Promise<Boolean>;
+export function isWXAppInstalled(): Promise<boolean>;
 /**
  * 判断当前微信的版本是否支持 OpenApi  
  * 支持返回 true，不支持返回 false
  */
-export function isWXAppSupportApi(): Promise<Boolean>;
+export function isWXAppSupportApi(): Promise<boolean>;
+/**
+ * 获取当前微信SDK的版本号
+ */
+export function getApiVersion(): Promise<string>;

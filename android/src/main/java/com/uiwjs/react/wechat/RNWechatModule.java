@@ -13,6 +13,7 @@ public class RNWechatModule extends ReactContextBaseJavaModule {
     private final ReactApplicationContext reactContext;
     private String appId;
     private IWXAPI api = null;
+    private final static String NOT_REGISTERED = "registerApp required.";
 
     public RNWechatModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -34,4 +35,17 @@ public class RNWechatModule extends ReactContextBaseJavaModule {
             promise.reject("-1", e.getMessage());
         }
     }
+
+    @ReactMethod
+    public void getApiVersion(Promise promise) {
+        try {
+            if (api == null) {
+                throw new Exception(NOT_REGISTERED);
+            }
+            promise.resolve(api.getWXAppSupportAPI());
+        } catch (Exception e) {
+            promise.reject("-1", e.getMessage());
+        }
+    }
+
 }

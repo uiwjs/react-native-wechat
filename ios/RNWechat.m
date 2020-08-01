@@ -54,7 +54,7 @@ RCT_REMAP_METHOD(registerApp, :(NSString *)appid :(NSString *)universalLink reso
 }
 
 // 检查微信是否已被用户安装, 微信已安装返回YES，未安装返回NO。
-RCT_REMAP_METHOD(isWXAppInstalled, :(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject) {
+RCT_EXPORT_METHOD(isWXAppInstalled: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     if ([WXApi isWXAppInstalled]) {
         resolve(@YES);
     } else {
@@ -63,12 +63,17 @@ RCT_REMAP_METHOD(isWXAppInstalled, :(RCTPromiseResolveBlock)resolve :(RCTPromise
 }
 
 // 判断当前微信的版本是否支持OpenApi，支持返回YES，不支持返回NO。
-RCT_REMAP_METHOD(isWXAppSupportApi, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+RCT_EXPORT_METHOD(isWXAppSupportApi: (RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject) {
     if ([WXApi isWXAppSupportApi]) {
         resolve(@YES);
     } else {
         resolve(@NO);
     }
+}
+
+// 获取当前微信SDK的版本号
+RCT_EXPORT_METHOD(getApiVersion: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+    resolve([WXApi getApiVersion]);
 }
 
 @end

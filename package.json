@@ -2,7 +2,7 @@
   "name": "@uiw/react-native-wechat",
   "title": "@uiw/react Native Wechat",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "React Native 包使用微信分享、登录、收藏、支付等功能。",
   "main": "index.js",
   "files": [
     "android/libs",
@@ -14,15 +14,16 @@
     "README.md"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "typedoc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uiwjs/@uiw/react-native-wechat.git",
-    "baseUrl": "https://github.com/uiwjs/@uiw/react-native-wechat"
+    "url": "git+https://github.com/uiwjs/react-native-wechat.git",
+    "baseUrl": "https://github.com/uiwjs/react-native-wechat"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "wechat"
   ],
   "author": {
     "name": "Kenny Wong",
@@ -37,6 +38,8 @@
   },
   "devDependencies": {
     "react": "^16.9.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.61.5",
+    "typedoc": "0.17.8",
+    "typescript": "3.9.7"
   }
 }

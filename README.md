@@ -1,4 +1,5 @@
 <br />
+<br />
 <p align="center">
   <a href="https://uiwjs.github.io/react-native-wechat/">
     <img src="https://user-images.githubusercontent.com/1680273/89100258-46cf6a00-d428-11ea-96dc-8b07a0ee277c.png" height="100" />
@@ -88,6 +89,6 @@ npx create-react-native-module --package-identifier com.uiwjs.react.wechat --obj
 
 ## 相关连接 
 
-- [微信（SDK）：iOS SDK v1.8.7.1](https://developers.weixin.qq.com/doc/oplatform/Downloads/iOS_Resource.html)
-- [微信（SDK）：iOS 接入指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
+- [微信(SDK)：iOS SDK v1.8.7.1](https://developers.weixin.qq.com/doc/oplatform/Downloads/iOS_Resource.html)
+- [微信(SDK)：iOS 接入指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
 - [@uiw/react-native-alipay](https://github.com/uiwjs/react-native-alipay) 支付宝支付。

@@ -4,23 +4,30 @@ import Wechat from '@uiw/react-native-wechat';
 
 export default class App extends Component {
   state = {
-    message: '--'
+    isInstall: false,
+    isWXAppSupportApi: false,
   };
   async componentDidMount() {
     const isInstall = await Wechat.isWXAppInstalled();
-    console.log(':isInstall:', isInstall);
-    // RNWechat.sampleMethod('Testing', 123, (message) => {
-    //   this.setState({
-    //     message
-    //   });
-    // });
+    const isWXAppSupportApi = await Wechat.isWXAppSupportApi();
+    this.setState({
+      isInstall, isWXAppSupportApi
+    });
   }
   render() {
+    const { isInstall, isWXAppSupportApi } = this.state;
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <Text style={styles.welcome}>☆Wechat Example☆</Text>
-          <Text style={styles.instructions}>{this.state.message}</Text>
+          <Text>
+            <Text style={styles.instructions}>
+              <Text style={{color: isInstall ? 'green' : 'red'}}>{isInstall ? '有' : '没有'}</Text>安装微信，
+            </Text>
+            <Text style={styles.instructions}>
+              当前微信的版本<Text style={{color: isWXAppSupportApi ? 'green' : 'red'}}>{isWXAppSupportApi ? '支持' : '不支持'}</Text> OpenApi
+            </Text>
+          </Text>
         </View>
       </SafeAreaView>
     );

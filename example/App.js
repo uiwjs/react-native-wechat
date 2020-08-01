@@ -9,30 +9,28 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import RNWechat from '@uiw/react-native-wechat';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   state = {
-    status: 'starting',
     message: '--'
   };
   componentDidMount() {
-    RNWechat.sampleMethod('Testing', 123, (message) => {
-      this.setState({
-        status: 'native callback received',
-        message
-      });
-    });
+    // RNWechat.sampleMethod('Testing', 123, (message) => {
+    //   this.setState({
+    //     message
+    //   });
+    // });
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>☆RNWechat example☆</Text>
-        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
-        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
-        <Text style={styles.instructions}>{this.state.message}</Text>
-      </View>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>☆Wechat Example☆</Text>
+          <Text style={styles.instructions}>{this.state.message}</Text>
+        </View>
+      </SafeAreaView>
     );
   }
 }
@@ -40,7 +38,7 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },

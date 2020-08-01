@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "Team ID.com.uiwjs.XXX",
+        "paths": ["/react-native-wechat/*"]
+      }
+    ]
+  }
+}

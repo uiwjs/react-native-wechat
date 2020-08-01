@@ -7,7 +7,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@uiw/react-native-wechat.svg)](https://npmjs.org/package/@uiw/react-native-wechat)
 
-React Native 包使用微信分享、登录、收藏、支付等功能。
+React Native 包使用微信分享、登录、收藏、支付等功能，支持Android/iOS。完整实例 [Example](https://github.com/uiwjs/react-native-wechat/tree/master/example) | [完整的接口文档](https://uiwjs.github.io/react-native-alipay/)
 
 ## 注意事项
 

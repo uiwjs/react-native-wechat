@@ -104,6 +104,29 @@ https:<span class="hljs-regexp">//ui</span>wjs.github.io/apple-app-site-associat
 
 xxx目录
 https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp">/react-native-wechat/</span>apple-app-site-association</code></pre></details>
+						<details>
+							<summary>iOS: RCTBridge required dispatch_sync to load RCTDevLoadingView.</summary>
+							<blockquote>
+								<p>错误内容： RCTBridge required dispatch_sync to load RCTDevLoadingView. This may lead to deadlocks</p>
+							</blockquote>
+							<p><strong>错误解决方案</strong>：可以通过下面代码可以解决，事实上我通过关闭 debug 浏览器页面就没有错误消息了。错误原因可能是你打开了 debug 浏览器，但是你模拟器并没有开启 debug 模式。</p>
+							<pre><code class="language-diff"><span class="hljs-addition">+ #if RCT_DEV</span>
+<span class="hljs-addition">+ #import &lt;React/RCTDevLoadingView.h&gt;</span>
+<span class="hljs-addition">+ #endif</span>
+
+<span class="hljs-deletion">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</span>
+{
+#ifdef FB_SONARKIT_ENABLED
+  InitializeFlipper(application);
+#endif
+
+  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+
+<span class="hljs-addition">+  #if RCT_DEV</span>
+<span class="hljs-addition">+    [bridge moduleForClass:[RCTDevLoadingView class]];</span>
+<span class="hljs-addition">+  #endif</span>
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@&quot;example&quot; initialProperties:nil];</code></pre>
+						</details>
 						<a href="#安装依赖" id="安装依赖" style="color: inherit; text-decoration: none;">
 							<h2>安装依赖</h2>
 						</a>

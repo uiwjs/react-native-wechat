@@ -68,6 +68,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#getapiversion" class="tsd-kind-icon">get<wbr>Api<wbr>Version</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#iswxappinstalled" class="tsd-kind-icon">isWXApp<wbr>Installed</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#iswxappsupportapi" class="tsd-kind-icon">isWXApp<wbr>Support<wbr>Api</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#registerapp" class="tsd-kind-icon">register<wbr>App</a></li>
@@ -79,16 +80,38 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="iswxappinstalled" class="tsd-anchor"></a>
-					<h3>isWXApp<wbr>Installed</h3>
+					<a name="getapiversion" class="tsd-anchor"></a>
+					<h3>get<wbr>Api<wbr>Version</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">isWXApp<wbr>Installed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Api<wbr>Version<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/uiwjs/react-native-wechat/blob/70405ec/index.d.ts#L13">index.d.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/uiwjs/react-native-wechat/blob/0ee0690/index.d.ts#L22">index.d.ts:22</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>获取当前微信SDK的版本号</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="iswxappinstalled" class="tsd-anchor"></a>
+					<h3>isWXApp<wbr>Installed</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">isWXApp<wbr>Installed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/uiwjs/react-native-wechat/blob/0ee0690/index.d.ts#L13">index.d.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -97,7 +120,7 @@
 									微信已安装返回 <code>true</code>，未安装返回 <code>false</code>。</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -105,13 +128,13 @@
 					<a name="iswxappsupportapi" class="tsd-anchor"></a>
 					<h3>isWXApp<wbr>Support<wbr>Api</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">isWXApp<wbr>Support<wbr>Api<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">isWXApp<wbr>Support<wbr>Api<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/uiwjs/react-native-wechat/blob/70405ec/index.d.ts#L18">index.d.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/uiwjs/react-native-wechat/blob/0ee0690/index.d.ts#L18">index.d.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -120,7 +143,7 @@
 									支持返回 true，不支持返回 false</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -134,7 +157,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/uiwjs/react-native-wechat/blob/70405ec/index.d.ts#L8">index.d.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/uiwjs/react-native-wechat/blob/0ee0690/index.d.ts#L8">index.d.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -174,6 +197,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getapiversion" class="tsd-kind-icon">get<wbr>Api<wbr>Version</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#iswxappinstalled" class="tsd-kind-icon">isWXApp<wbr>Installed</a>
 					</li>

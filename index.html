@@ -62,21 +62,24 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#uiwreact-native-wechat" id="uiwreact-native-wechat" style="color: inherit; text-decoration: none;">
-					<h2>@uiw/react-native-wechat</h2>
-				</a>
-				<p><a href="https://npmjs.org/package/@uiw/react-native-wechat"><img src="https://img.shields.io/npm/v/@uiw/react-native-wechat.svg" alt="NPM Version"></a></p>
-				<p>React Native 包使用微信分享、登录、收藏、支付等功能。</p>
-				<a href="#注意事项" id="注意事项" style="color: inherit; text-decoration: none;">
-					<h2>注意事项</h2>
-				</a>
-				<details>
-					<summary>iOS: 微信授权登录 Universal Link(通用链接)</summary>
-					<blockquote>
-						<p>Universal Link(通用链接)是苹果在 iOS9 推出的，一种能够方便的通过传统 HTTPS 链接来启动 APP 的功能，可以使用相同的网址打开网址和 APP。<br>看起来就是一条普通的 https 链接，当然是我们在该链接域名根目录配置过的一个链接，也可以在该链接中放置对应的H5页面。当用户的点击该链接，只要手机中安装了支持该链接的 APP 就会直接进入到 APP 中。如果没有安装APP则会跳转到 Safari 浏览器中，展示 H5 页面。对用户来说则是一个无缝跳转的过程。  </p>
-					</blockquote>
-					<p>创建一个名为 <code>apple-app-site-association</code> 的文件，如下：</p>
-					<pre><code class="language-json">{
+				<p align="center">
+					<a href="https://uiwjs.github.io/react-native-wechat/">
+						<img src="https://user-images.githubusercontent.com/1680273/89100258-46cf6a00-d428-11ea-96dc-8b07a0ee277c.png" height="100" />
+					</a>
+					<h1 align="center">@uiw/react-native-wechat</h1>
+					<p>
+						<p><a href="https://npmjs.org/package/@uiw/react-native-wechat"><img src="https://img.shields.io/npm/v/@uiw/react-native-wechat.svg" alt="NPM Version"></a></p>
+						<p>React Native 包使用微信分享、登录、收藏、支付等功能。</p>
+						<a href="#注意事项" id="注意事项" style="color: inherit; text-decoration: none;">
+							<h2>注意事项</h2>
+						</a>
+						<details>
+							<summary>iOS: 微信授权登录 Universal Link(通用链接)</summary>
+							<blockquote>
+								<p>Universal Link(通用链接)是苹果在 iOS9 推出的，一种能够方便的通过传统 HTTPS 链接来启动 APP 的功能，可以使用相同的网址打开网址和 APP。<br>看起来就是一条普通的 https 链接，当然是我们在该链接域名根目录配置过的一个链接，也可以在该链接中放置对应的H5页面。当用户的点击该链接，只要手机中安装了支持该链接的 APP 就会直接进入到 APP 中。如果没有安装APP则会跳转到 Safari 浏览器中，展示 H5 页面。对用户来说则是一个无缝跳转的过程。  </p>
+							</blockquote>
+							<p>创建一个名为 <code>apple-app-site-association</code> 的文件，如下：</p>
+							<pre><code class="language-json">{
   <span class="hljs-attr">&quot;applinks&quot;</span>: {
     <span class="hljs-attr">&quot;apps&quot;</span>: [],
     <span class="hljs-attr">&quot;details&quot;</span>: [
@@ -91,45 +94,45 @@
     ]
   }
 }</code></pre>
-					<p>上传该文件到你的域名所对应的<code>根目录</code>或<code>xxx目录</code>下，<code>apple-app-site-association</code> 文件不需要扩展名。</p>
-					<p><strong>注意：</strong> 苹果提供了一个<a href="https://search.developer.apple.com/appsearch-validation-tool/">网页来验证</a>我们编写的这个 <a href="https://search.developer.apple.com/appsearch-validation-tool/">apple-app-site-association</a> 是否合法有效。</p>
-					<pre><code>根目录
+							<p>上传该文件到你的域名所对应的<code>根目录</code>或<code>xxx目录</code>下，<code>apple-app-site-association</code> 文件不需要扩展名。</p>
+							<p><strong>注意：</strong> 苹果提供了一个<a href="https://search.developer.apple.com/appsearch-validation-tool/">网页来验证</a>我们编写的这个 <a href="https://search.developer.apple.com/appsearch-validation-tool/">apple-app-site-association</a> 是否合法有效。</p>
+							<pre><code>根目录
 https:<span class="hljs-regexp">//ui</span>wjs.github.io/apple-app-site-association
 
 xxx目录
 https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp">/react-native-wechat/</span>apple-app-site-association</code></pre></details>
-				<a href="#安装依赖" id="安装依赖" style="color: inherit; text-decoration: none;">
-					<h2>安装依赖</h2>
-				</a>
-				<pre><code class="language-bash">yarn add @uiw/react-native-alipay
+						<a href="#安装依赖" id="安装依赖" style="color: inherit; text-decoration: none;">
+							<h2>安装依赖</h2>
+						</a>
+						<pre><code class="language-bash">yarn add @uiw/react-native-alipay
 <span class="hljs-comment"># react-native version &gt;= 0.60+</span>
 $ <span class="hljs-built_in">cd</span> ios &amp;&amp; pod install</code></pre>
-				<a href="#使用" id="使用" style="color: inherit; text-decoration: none;">
-					<h2>使用</h2>
-				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> Wechat <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@uiw/react-native-wechat&#x27;</span>;
+						<a href="#使用" id="使用" style="color: inherit; text-decoration: none;">
+							<h2>使用</h2>
+						</a>
+						<pre><code class="language-js"><span class="hljs-keyword">import</span> Wechat <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@uiw/react-native-wechat&#x27;</span>;
 </code></pre>
-				<a href="#开发" id="开发" style="color: inherit; text-decoration: none;">
-					<h2>开发</h2>
-				</a>
-				<pre><code class="language-bash"><span class="hljs-built_in">cd</span> example   <span class="hljs-comment"># 进入实例 example 工程，根目录不需要安装，会引发错误</span>
+						<a href="#开发" id="开发" style="color: inherit; text-decoration: none;">
+							<h2>开发</h2>
+						</a>
+						<pre><code class="language-bash"><span class="hljs-built_in">cd</span> example   <span class="hljs-comment"># 进入实例 example 工程，根目录不需要安装，会引发错误</span>
 yarn install <span class="hljs-comment"># 安装依赖</span>
 
 <span class="hljs-built_in">cd</span> ios     <span class="hljs-comment"># 进入 example/ios 目录安装依赖</span>
 pod instll <span class="hljs-comment"># 安装依赖</span></code></pre>
-				<a href="#其它" id="其它" style="color: inherit; text-decoration: none;">
-					<h2>其它</h2>
-				</a>
-				<p>当前工程基于 <a href="https://github.com/brodybits/create-react-native-module">@brodybits/create-react-native-module</a> 初始化。</p>
-				<pre><code class="language-bash">npx create-react-native-module --package-identifier com.uiwjs.react.wechat --object-class-name RNWechat --generate-example Wechat --example-react-native-version 0.63.2 --module-name @uiw/react-native-wechat --github-account uiwjs --author-name <span class="hljs-string">&quot;Kenny Wong&quot;</span> --author-email <span class="hljs-string">&quot;wowohoo@qq.com&quot;</span></code></pre>
-				<a href="#相关连接" id="相关连接" style="color: inherit; text-decoration: none;">
-					<h2>相关连接</h2>
-				</a>
-				<ul>
-					<li><a href="https://developers.weixin.qq.com/doc/oplatform/Downloads/iOS_Resource.html">微信（SDK）：iOS SDK v1.8.7.1</a></li>
-					<li><a href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html">微信（SDK）：iOS 接入指南</a></li>
-					<li><a href="https://github.com/uiwjs/react-native-alipay">@uiw/react-native-alipay</a> 支付宝支付。</li>
-				</ul>
+						<a href="#其它" id="其它" style="color: inherit; text-decoration: none;">
+							<h2>其它</h2>
+						</a>
+						<p>当前工程基于 <a href="https://github.com/brodybits/create-react-native-module">@brodybits/create-react-native-module</a> 初始化。</p>
+						<pre><code class="language-bash">npx create-react-native-module --package-identifier com.uiwjs.react.wechat --object-class-name RNWechat --generate-example Wechat --example-react-native-version 0.63.2 --module-name @uiw/react-native-wechat --github-account uiwjs --author-name <span class="hljs-string">&quot;Kenny Wong&quot;</span> --author-email <span class="hljs-string">&quot;wowohoo@qq.com&quot;</span></code></pre>
+						<a href="#相关连接" id="相关连接" style="color: inherit; text-decoration: none;">
+							<h2>相关连接</h2>
+						</a>
+						<ul>
+							<li><a href="https://developers.weixin.qq.com/doc/oplatform/Downloads/iOS_Resource.html">微信（SDK）：iOS SDK v1.8.7.1</a></li>
+							<li><a href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html">微信（SDK）：iOS 接入指南</a></li>
+							<li><a href="https://github.com/uiwjs/react-native-alipay">@uiw/react-native-alipay</a> 支付宝支付。</li>
+						</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

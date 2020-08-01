@@ -73,6 +73,10 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    // 微信SDK
+    // Android Studio环境下：已改用gradle形式，发布到jcenter，请开发者使用gradle来编译、更新微信SDK。
+    // 在build.gradle文件中，添加如下依赖即可：
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
 }
 
 def configureReactNativePom(def pom) {

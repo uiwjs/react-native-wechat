@@ -54,6 +54,34 @@ https://uiwjs.github.io/react-native-wechat/apple-app-site-association
 
 </details>
 
+<details>
+<summary>iOS: RCTBridge required dispatch_sync to load RCTDevLoadingView.</summary>
+
+> 错误内容： RCTBridge required dispatch_sync to load RCTDevLoadingView. This may lead to deadlocks
+
+**错误解决方案**：可以通过下面代码可以解决，事实上我通过关闭 debug 浏览器页面就没有错误消息了。错误原因可能是你打开了 debug 浏览器，但是你模拟器并没有开启 debug 模式。
+
+```diff
++ #if RCT_DEV
++ #import <React/RCTDevLoadingView.h>
++ #endif
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+#ifdef FB_SONARKIT_ENABLED
+  InitializeFlipper(application);
+#endif
+
+  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+
++  #if RCT_DEV
++    [bridge moduleForClass:[RCTDevLoadingView class]];
++  #endif
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"example" initialProperties:nil];
+```
+
+</details>
+
 ## 安装依赖
 
 ```bash

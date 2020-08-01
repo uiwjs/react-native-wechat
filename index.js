@@ -9,6 +9,12 @@ export default class Wechat {
    * @param universalLink Universal Link(通用链接)是苹果在 iOS9 推出的，一种能够方便的通过传统 HTTPS 链接来启动 APP 的功能，可以使用相同的网址打开网址和 APP。
    */
   static registerApp(appid, universalLink) {
-    return NativeModules.RNAMapGeolocation.registerApp(appid, universalLink);
+    return NativeModules.RNWechat.registerApp(appid, universalLink);
+  }
+  /**
+   * 检查微信是否已被用户安装
+   */
+  static isWXAppInstalled() {
+    return NativeModules.RNWechat.isWXAppInstalled();
   }
 }

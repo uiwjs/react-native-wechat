@@ -44,12 +44,21 @@ RCT_EXPORT_MODULE()
 }
 
 // 注册 appid
-RCT_REMAP_METHOD(registerApp, resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
-    if ([WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@"wxd930ea5d5a258f4f"]) {
+RCT_REMAP_METHOD(registerApp, :(NSString *)appid :(NSString *)universalLink resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+    if ([WXApi registerApp: appid universalLink: universalLink]) {
+        self.appId = appid;
         resolve(@[[NSNull null]]);
     } else {
         reject(@"-10404", INVOKE_FAILED, nil);
     }
 }
 
+// 检查微信是否已被用户安装, 微信已安装返回YES，未安装返回NO。
+RCT_REMAP_METHOD(isWXAppInstalled, :(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject) {
+    if ([WXApi isWXAppInstalled]) {
+        resolve(@YES);
+    } else {
+        resolve(@NO);
+    }
+}
 @end

@@ -1,3 +1,4 @@
+<br />
 <p align="center">
   <a href="https://uiwjs.github.io/react-native-wechat/">
     <img src="https://user-images.githubusercontent.com/1680273/89100258-46cf6a00-d428-11ea-96dc-8b07a0ee277c.png" height="100" />

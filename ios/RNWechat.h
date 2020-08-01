@@ -3,5 +3,5 @@
 #import "WXApiObject.h"
 
 @interface RNWechat : NSObject <RCTBridgeModule, WXApiDelegate>
-
+@property NSString* appId;
 @end

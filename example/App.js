@@ -9,12 +9,19 @@ export default class App extends Component {
     version: null,
   };
   async componentDidMount() {
-    const isInstall = await Wechat.isWXAppInstalled();
-    const isWXAppSupportApi = await Wechat.isWXAppSupportApi();
-    const version = await Wechat.getApiVersion();
-    this.setState({
-      isInstall, isWXAppSupportApi, version
-    });
+    try {
+      const reg = await Wechat.registerApp('wxd930ea5d5a258f4f');
+      console.log('reg:', reg);
+      const isInstall = await Wechat.isWXAppInstalled();
+      const isWXAppSupportApi = await Wechat.isWXAppSupportApi();
+      const version = await Wechat.getApiVersion();
+      console.log('version:', version)
+      this.setState({
+        isInstall, isWXAppSupportApi, version
+      });
+    } catch (error) {
+      console.log('error>', error);
+    }
   }
   render() {
     const { isInstall, isWXAppSupportApi, version } = this.state;
@@ -29,7 +36,7 @@ export default class App extends Component {
             <Text style={styles.instructions}>
               当前微信的版本<Text style={{color: isWXAppSupportApi ? 'green' : 'red'}}>{isWXAppSupportApi ? '支持' : '不支持'}</Text> OpenApi
             </Text>
-            <Text>{version}</Text>
+            <Text> - v{version}</Text>
           </Text>
         </View>
       </SafeAreaView>

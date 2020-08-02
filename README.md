@@ -55,6 +55,15 @@ https://uiwjs.github.io/react-native-wechat/apple-app-site-association
 </details>
 
 <details>
+<summary>iOS: -canOpenURL: failed for URL: "weixin://".</summary>
+
+> ```
+> -canOpenURL: failed for URL: "weixin://" - error: "The operation couldn’t be completed. (OSStatus error -10814.)"
+> ```
+
+</details>
+
+<details>
 <summary>iOS: RCTBridge required dispatch_sync to load RCTDevLoadingView.</summary>
 
 > 错误内容： RCTBridge required dispatch_sync to load RCTDevLoadingView. This may lead to deadlocks

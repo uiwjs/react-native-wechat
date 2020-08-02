@@ -29,7 +29,7 @@ public class RNWechatModule extends ReactContextBaseJavaModule {
     public void registerApp(String appid, Promise promise) {
         try {
             this.appId = appid;
-            api = WXAPIFactory.createWXAPI(reactContext.getApplicationContext(), appid, true);
+            api = WXAPIFactory.createWXAPI(reactContext.getApplicationContext(), null, false);
             promise.resolve(api.registerApp(appid));
         } catch (Exception e) {
             promise.reject("-1", e.getMessage());
@@ -43,6 +43,30 @@ public class RNWechatModule extends ReactContextBaseJavaModule {
                 throw new Exception(NOT_REGISTERED);
             }
             promise.resolve(api.getWXAppSupportAPI());
+        } catch (Exception e) {
+            promise.reject("-1", e.getMessage());
+        }
+    }
+    @ReactMethod
+    public void isWXAppInstalled(Promise promise) {
+        try {
+            if (api == null) {
+                throw new Exception(NOT_REGISTERED);
+            }
+            promise.resolve(api.isWXAppInstalled());
+        } catch (Exception e) {
+            promise.reject("-1", e.getMessage());
+        }
+    }
+    
+    @ReactMethod
+    public void isWXAppSupportApi(Promise promise) {
+        try {
+            if (api == null) {
+                throw new Exception(NOT_REGISTERED);
+            }
+            int wxSdkVersion = api.getWXAppSupportAPI();
+            promise.resolve(wxSdkVersion);
         } catch (Exception e) {
             promise.reject("-1", e.getMessage());
         }

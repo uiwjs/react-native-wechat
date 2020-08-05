@@ -47,6 +47,19 @@ public class RNWechatModule extends ReactContextBaseJavaModule {
             promise.reject("-1", e.getMessage());
         }
     }
+
+    @ReactMethod
+    public void openWXApp(Promise promise) {
+        try {
+            if (api == null) {
+                throw new Exception(NOT_REGISTERED);
+            }
+            promise.resolve(api.openWXApp());
+        } catch (Exception e) {
+            promise.reject("-1", e.getMessage());
+        }
+    }
+
     @ReactMethod
     public void isWXAppInstalled(Promise promise) {
         try {

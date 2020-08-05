@@ -12,6 +12,10 @@ RCT_EXPORT_MODULE()
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURL:) name:@"RCTOpenURLNotification" object:nil];
+        // 在register之前打开log, 后续可以根据log排查问题
+        [WXApi startLogByLevel:WXLogLevelDetail logBlock:^(NSString *log) {
+            NSLog(@"WeChatSDK: %@", log);
+        }];
     }
     return self;
 }
@@ -44,18 +48,29 @@ RCT_EXPORT_MODULE()
 }
 
 // 注册 appid
-RCT_REMAP_METHOD(registerApp, :(NSString *)appid :(NSString *)universalLink resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
-    if ([WXApi registerApp: appid universalLink: universalLink]) {
+RCT_REMAP_METHOD(registerApp, appid:(NSString *)appid universalLink:(NSString*)universalLink resolver: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+    @try {
         self.appId = appid;
-        resolve(@[[NSNull null]]);
-    } else {
-        reject(@"-10404", INVOKE_FAILED, nil);
+        resolve(@([WXApi registerApp: appid universalLink: universalLink]));
+    } @catch (NSException *exception) {
+        reject(@"-10404", [NSString stringWithFormat:@"%@ %@", exception.name, exception.userInfo], nil);
     }
 }
 
 // 检查微信是否已被用户安装, 微信已安装返回YES，未安装返回NO。
 RCT_EXPORT_METHOD(isWXAppInstalled: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     if ([WXApi isWXAppInstalled]) {
+        resolve(@YES);
+    } else {
+        resolve(@NO);
+    }
+}
+
+/*! @brief 打开微信
+ * @return 成功返回YES，失败返回NO。
+ */
+RCT_EXPORT_METHOD(openWXApp: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+    if ([WXApi openWXApp]) {
         resolve(@YES);
     } else {
         resolve(@NO);

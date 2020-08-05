@@ -13,9 +13,13 @@ export function registerApp(appid: string, universalLink: string): void;
 export function isWXAppInstalled(): Promise<boolean>;
 /**
  * 判断当前微信的版本是否支持 OpenApi  
- * 支持返回 true，不支持返回 false
+ * 支持返回 `true`，不支持返回 `false`
  */
 export function isWXAppSupportApi(): Promise<boolean>;
+/**
+ * 打开微信，成功返回 `true`，不支持返回 失败返回 `false`
+ */
+export function openWXApp(): Promise<boolean>;
 /**
  * 获取当前微信SDK的版本号
  */

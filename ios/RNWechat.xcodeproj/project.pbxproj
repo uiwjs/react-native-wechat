@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B9CCD3AF24D41B010084C62F /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CCD3AE24D41B000084C62F /* libWeChatSDK.a */; };
+		B917B27D24D91110002ED880 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B917B27C24D91110002ED880 /* Security.framework */; };
+		B917B27F24D91119002ED880 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B917B27E24D91119002ED880 /* CoreGraphics.framework */; };
+		B917B28124D91122002ED880 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B917B28024D91121002ED880 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNWechat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNWechat.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B917B27C24D91110002ED880 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		B917B27E24D91119002ED880 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		B917B28024D91121002ED880 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		B9CCD3AE24D41B000084C62F /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -32,7 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9CCD3AF24D41B010084C62F /* libWeChatSDK.a in Frameworks */,
+				B917B28124D91122002ED880 /* WebKit.framework in Frameworks */,
+				B917B27F24D91119002ED880 /* CoreGraphics.framework in Frameworks */,
+				B917B27D24D91110002ED880 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +65,9 @@
 		B9CCD3AD24D41B000084C62F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B917B28024D91121002ED880 /* WebKit.framework */,
+				B917B27E24D91119002ED880 /* CoreGraphics.framework */,
+				B917B27C24D91110002ED880 /* Security.framework */,
 				B9CCD3AE24D41B000084C62F /* libWeChatSDK.a */,
 			);
 			name = Frameworks;

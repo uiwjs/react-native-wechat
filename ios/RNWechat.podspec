@@ -24,7 +24,11 @@ Pod::Spec.new do |s|
   # s.static_framework = true
 
   s.dependency "React"
-  s.dependency "libWeChatSDK"
+  # 通过 CocoaPods 集成
+  # https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html#_4-1-%E9%80%9A%E8%BF%87-CocoaPods-%E9%9B%86%E6%88%90
+  # https://cocoapods.org/pods/WechatOpenSDK
+  s.dependency "WechatOpenSDK", "1.8.7.1"
+  # s.dependency "libWeChatSDK"
   # s.vendored_library "libWeChatSDK"
   # s.library = "c++", "z"
   # ...

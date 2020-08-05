@@ -61,6 +61,8 @@ https://uiwjs.github.io/react-native-wechat/apple-app-site-association
 
 登录苹果开发者后台，在设置证书的页面找到 `Identifiers` 里，在对应的 `BundleId` 下勾选 `Associated Domains`
 
+<img src="https://user-images.githubusercontent.com/1680273/89388154-32e07c80-d736-11ea-9724-e94cf6d468ca.png" />
+
 </details>
 
 <details>

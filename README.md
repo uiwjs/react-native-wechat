@@ -57,7 +57,7 @@ https://uiwjs.github.io/react-native-wechat/apple-app-site-association
 打开 `Associated Domains` 开关，将 [`Universal Links`](https://developer.apple.com/documentation/safariservices/supporting_associated_domains) 域名加到配置上，如果 `URL` 地址是 https://uiwjs.github.io/apple-app-site-association，那么，
 `Associated Domains` 中填写 `applinks: uiwjs.github.io`。
 
-<img src="https://docs-assets.developer.apple.com/published/fccb1b799a/741497b6-a7af-427b-9e5a-4980336ac70e.png" />
+<img src="https://user-images.githubusercontent.com/1680273/89387904-c796aa80-d735-11ea-973c-f386f46cd16f.png" />
 
 登录苹果开发者后台，在设置证书的页面找到 `Identifiers` 里，在对应的 `BundleId` 下勾选 `Associated Domains`
 

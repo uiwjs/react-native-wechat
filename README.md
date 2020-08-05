@@ -61,6 +61,27 @@ https://uiwjs.github.io/react-native-wechat/apple-app-site-association
 > -canOpenURL: failed for URL: "weixin://" - error: "The operation couldn’t be completed. (OSStatus error -10814.)"
 > ```
 
+设置 URL Schemes 并列为白名单，在 [`ios/<应用名称>/Info.plist`](https://github.com/uiwjs/react-native-wechat/blob/f6caea5b7d58dd05b7fc110ff76295c5e2be927b/example/ios/example/Info.plist#L23-L43) 中添加
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+    <key>CFBundleURLName</key>
+    <string>weixin</string>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>wx500b695a47bd364b</string>
+    </array>
+  </dict>
+</array>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>weixin</string>
+  <string>weixinULAPI</string>
+</array>
+```
+
 </details>
 
 <details>

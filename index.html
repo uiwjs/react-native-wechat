@@ -108,6 +108,23 @@ https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp
 							<summary>iOS: -canOpenURL: failed for URL: "weixin://".</summary>
 							<blockquote>
 							<pre><code>-<span class="hljs-attr">canOpenURL:</span> failed <span class="hljs-keyword">for</span> <span class="hljs-attr">URL:</span> <span class="hljs-string">&quot;weixin://&quot;</span> - <span class="hljs-attr">error:</span> <span class="hljs-string">&quot;The operation couldn’t be completed. (OSStatus error -10814.)&quot;</span></code></pre></blockquote>
+							<p>设置 URL Schemes 并列为白名单，在 <a href="https://github.com/uiwjs/react-native-wechat/blob/f6caea5b7d58dd05b7fc110ff76295c5e2be927b/example/ios/example/Info.plist#L23-L43"><code>ios/&lt;应用名称&gt;/Info.plist</code></a> 中添加</p>
+							<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>CFBundleURLTypes<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>CFBundleURLName<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>weixin<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>CFBundleURLSchemes<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>wx500b695a47bd364b<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>LSApplicationQueriesSchemes<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>weixin<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>weixinULAPI<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span></code></pre>
 						</details>
 						<details>
 							<summary>iOS: RCTBridge required dispatch_sync to load RCTDevLoadingView.</summary>

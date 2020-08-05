@@ -17,7 +17,7 @@ React Native 包使用微信分享、登录、收藏、支付等功能，支持A
 <details>
 <summary>iOS: 微信授权登录 Universal Link(通用链接)</summary>
 
-> Universal Link(通用链接)是苹果在 iOS9 推出的，一种能够方便的通过传统 HTTPS 链接来启动 APP 的功能，可以使用相同的网址打开网址和 APP。  
+> [Universal Link(通用链接)](https://developer.apple.com/documentation/safariservices/supporting_associated_domains)是苹果在 iOS9 推出的，一种能够方便的通过传统 HTTPS 链接来启动 APP 的功能，可以使用相同的网址打开网址和 APP。  
 > 看起来就是一条普通的 https 链接，当然是我们在该链接域名根目录配置过的一个链接，也可以在该链接中放置对应的H5页面。当用户的点击该链接，只要手机中安装了支持该链接的 APP 就会直接进入到 APP 中。如果没有安装APP则会跳转到 Safari 浏览器中，展示 H5 页面。对用户来说则是一个无缝跳转的过程。  
 
 创建一个名为 `apple-app-site-association` 的文件，如下：
@@ -25,19 +25,20 @@ React Native 包使用微信分享、登录、收藏、支付等功能，支持A
 ```json
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "Team ID.com.uiwjs.XXX",
-        "paths": ["/uiwjs/*"]
-      },
-      {
-        "appID": "Team ID.com.uiwjs.XXX",
-        "paths": ["/uiwjstest/*"]
+        "appID": "968DSZ49MT.com.uiwjs.react.example.wechat",
+        "paths": ["/react-native-wechat/*"]
       }
     ]
   }
 }
+```
+
+**说明：** 字段 appID 中的 `968DSZ49MT` 表示苹果账号的团队 `ID`，`com.uiwjs.react.example.wechat` 表示项目的 `BundleID`。
+
+```
+<Application Identifier Prefix>.<Bundle Identifier>
 ```
 
 上传该文件到你的域名所对应的`根目录`或`xxx目录`下，`apple-app-site-association` 文件不需要扩展名。
@@ -45,12 +46,20 @@ React Native 包使用微信分享、登录、收藏、支付等功能，支持A
 **注意：** 苹果提供了一个[网页来验证](https://search.developer.apple.com/appsearch-validation-tool/)我们编写的这个 [apple-app-site-association](https://search.developer.apple.com/appsearch-validation-tool/) 是否合法有效。
 
 ```
+https://<fully qualified domain>/.well-known/apple-app-site-association
 根目录
 https://uiwjs.github.io/apple-app-site-association
 
 xxx目录
 https://uiwjs.github.io/react-native-wechat/apple-app-site-association
 ```
+
+打开 `Associated Domains` 开关，将 [`Universal Links`](https://developer.apple.com/documentation/safariservices/supporting_associated_domains) 域名加到配置上，如果 `URL` 地址是 https://uiwjs.github.io/apple-app-site-association，那么，
+`Associated Domains` 中填写 `applinks: uiwjs.github.io`。
+
+<img src="https://docs-assets.developer.apple.com/published/fccb1b799a/741497b6-a7af-427b-9e5a-4980336ac70e.png" />
+
+登录苹果开发者后台，在设置证书的页面找到 `Identifiers` 里，在对应的 `BundleId` 下勾选 `Associated Domains`
 
 </details>
 

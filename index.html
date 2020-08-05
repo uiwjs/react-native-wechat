@@ -79,31 +79,32 @@
 						<details>
 							<summary>iOS: 微信授权登录 Universal Link(通用链接)</summary>
 							<blockquote>
-								<p>Universal Link(通用链接)是苹果在 iOS9 推出的，一种能够方便的通过传统 HTTPS 链接来启动 APP 的功能，可以使用相同的网址打开网址和 APP。<br>看起来就是一条普通的 https 链接，当然是我们在该链接域名根目录配置过的一个链接，也可以在该链接中放置对应的H5页面。当用户的点击该链接，只要手机中安装了支持该链接的 APP 就会直接进入到 APP 中。如果没有安装APP则会跳转到 Safari 浏览器中，展示 H5 页面。对用户来说则是一个无缝跳转的过程。  </p>
+								<p><a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains">Universal Link(通用链接)</a>是苹果在 iOS9 推出的，一种能够方便的通过传统 HTTPS 链接来启动 APP 的功能，可以使用相同的网址打开网址和 APP。<br>看起来就是一条普通的 https 链接，当然是我们在该链接域名根目录配置过的一个链接，也可以在该链接中放置对应的H5页面。当用户的点击该链接，只要手机中安装了支持该链接的 APP 就会直接进入到 APP 中。如果没有安装APP则会跳转到 Safari 浏览器中，展示 H5 页面。对用户来说则是一个无缝跳转的过程。  </p>
 							</blockquote>
 							<p>创建一个名为 <code>apple-app-site-association</code> 的文件，如下：</p>
 							<pre><code class="language-json">{
   <span class="hljs-attr">&quot;applinks&quot;</span>: {
-    <span class="hljs-attr">&quot;apps&quot;</span>: [],
     <span class="hljs-attr">&quot;details&quot;</span>: [
       {
-        <span class="hljs-attr">&quot;appID&quot;</span>: <span class="hljs-string">&quot;Team ID.com.uiwjs.XXX&quot;</span>,
-        <span class="hljs-attr">&quot;paths&quot;</span>: [<span class="hljs-string">&quot;/uiwjs/*&quot;</span>]
-      },
-      {
-        <span class="hljs-attr">&quot;appID&quot;</span>: <span class="hljs-string">&quot;Team ID.com.uiwjs.XXX&quot;</span>,
-        <span class="hljs-attr">&quot;paths&quot;</span>: [<span class="hljs-string">&quot;/uiwjstest/*&quot;</span>]
+        <span class="hljs-attr">&quot;appID&quot;</span>: <span class="hljs-string">&quot;968DSZ49MT.com.uiwjs.react.example.wechat&quot;</span>,
+        <span class="hljs-attr">&quot;paths&quot;</span>: [<span class="hljs-string">&quot;/react-native-wechat/*&quot;</span>]
       }
     ]
   }
 }</code></pre>
-							<p>上传该文件到你的域名所对应的<code>根目录</code>或<code>xxx目录</code>下，<code>apple-app-site-association</code> 文件不需要扩展名。</p>
+							<p><strong>说明：</strong> 字段 appID 中的 <code>968DSZ49MT</code> 表示苹果账号的团队 <code>ID</code>，<code>com.uiwjs.react.example.wechat</code> 表示项目的 <code>BundleID</code>。</p>
+							<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">Application</span> <span class="hljs-attr">Identifier</span> <span class="hljs-attr">Prefix</span>&gt;</span>.<span class="hljs-tag">&lt;<span class="hljs-name">Bundle</span> <span class="hljs-attr">Identifier</span>&gt;</span></code></pre><p>上传该文件到你的域名所对应的<code>根目录</code>或<code>xxx目录</code>下，<code>apple-app-site-association</code> 文件不需要扩展名。</p>
 							<p><strong>注意：</strong> 苹果提供了一个<a href="https://search.developer.apple.com/appsearch-validation-tool/">网页来验证</a>我们编写的这个 <a href="https://search.developer.apple.com/appsearch-validation-tool/">apple-app-site-association</a> 是否合法有效。</p>
-							<pre><code>根目录
+							<pre><code>https:<span class="hljs-regexp">//</span>&lt;fully qualified domain&gt;<span class="hljs-regexp">/.well-known/</span>apple-app-site-association
+根目录
 https:<span class="hljs-regexp">//ui</span>wjs.github.io/apple-app-site-association
 
 xxx目录
-https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp">/react-native-wechat/</span>apple-app-site-association</code></pre></details>
+https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp">/react-native-wechat/</span>apple-app-site-association</code></pre><p>打开 <code>Associated Domains</code> 开关，将 <a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains"><code>Universal Links</code></a> 域名加到配置上，如果 <code>URL</code> 地址是 <a href="https://uiwjs.github.io/apple-app-site-association%EF%BC%8C%E9%82%A3%E4%B9%88%EF%BC%8C">https://uiwjs.github.io/apple-app-site-association，那么，</a>
+							<code>Associated Domains</code> 中填写 <code>applinks: uiwjs.github.io</code>。</p>
+							<img src="https://docs-assets.developer.apple.com/published/fccb1b799a/741497b6-a7af-427b-9e5a-4980336ac70e.png" />
+							<p>登录苹果开发者后台，在设置证书的页面找到 <code>Identifiers</code> 里，在对应的 <code>BundleId</code> 下勾选 <code>Associated Domains</code></p>
+						</details>
 						<details>
 							<summary>iOS: -canOpenURL: failed for URL: "weixin://".</summary>
 							<blockquote>

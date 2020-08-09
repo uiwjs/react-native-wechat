@@ -93,14 +93,16 @@
   }
 }</code></pre>
 							<p><strong>说明：</strong> 字段 appID 中的 <code>968DSZ49MT</code> 表示苹果账号的团队 <code>ID</code>，<code>com.uiwjs.react.example.wechat</code> 表示项目的 <code>BundleID</code>。</p>
-							<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">Application</span> <span class="hljs-attr">Identifier</span> <span class="hljs-attr">Prefix</span>&gt;</span>.<span class="hljs-tag">&lt;<span class="hljs-name">Bundle</span> <span class="hljs-attr">Identifier</span>&gt;</span></code></pre><p>上传该文件到你的域名所对应的<code>根目录</code>或<code>xxx目录</code>下，<code>apple-app-site-association</code> 文件不需要扩展名。</p>
+							<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">Application</span> <span class="hljs-attr">Identifier</span> <span class="hljs-attr">Prefix</span>&gt;</span>.<span class="hljs-tag">&lt;<span class="hljs-name">Bundle</span> <span class="hljs-attr">Identifier</span>&gt;</span></code></pre>
+							<p>上传该文件到你的域名所对应的<code>根目录</code>或<code>xxx目录</code>下，<code>apple-app-site-association</code> 文件不需要扩展名。</p>
 							<p><strong>注意：</strong> 苹果提供了一个<a href="https://search.developer.apple.com/appsearch-validation-tool/">网页来验证</a>我们编写的这个 <a href="https://search.developer.apple.com/appsearch-validation-tool/">apple-app-site-association</a> 是否合法有效。</p>
 							<pre><code>https:<span class="hljs-regexp">//</span>&lt;fully qualified domain&gt;<span class="hljs-regexp">/.well-known/</span>apple-app-site-association
 根目录
 https:<span class="hljs-regexp">//ui</span>wjs.github.io/apple-app-site-association
 
 xxx目录
-https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp">/react-native-wechat/</span>apple-app-site-association</code></pre><p>打开 <code>Associated Domains</code> 开关，将 <a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains"><code>Universal Links</code></a> 域名加到配置上，如果 <code>URL</code> 地址是 <a href="https://uiwjs.github.io/apple-app-site-association%EF%BC%8C%E9%82%A3%E4%B9%88%EF%BC%8C">https://uiwjs.github.io/apple-app-site-association，那么，</a>
+https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp">/react-native-wechat/</span>apple-app-site-association</code></pre>
+							<p>打开 <code>Associated Domains</code> 开关，将 <a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains"><code>Universal Links</code></a> 域名加到配置上，如果 <code>URL</code> 地址是 <a href="https://uiwjs.github.io/apple-app-site-association%EF%BC%8C%E9%82%A3%E4%B9%88%EF%BC%8C">https://uiwjs.github.io/apple-app-site-association，那么，</a>
 							<code>Associated Domains</code> 中填写 <code>applinks: uiwjs.github.io</code>。</p>
 							<img src="https://user-images.githubusercontent.com/1680273/89387904-c796aa80-d735-11ea-973c-f386f46cd16f.png" />
 							<p>登录苹果开发者后台，在设置证书的页面找到 <code>Identifiers</code> 里，在对应的 <code>BundleId</code> 下勾选 <code>Associated Domains</code></p>
@@ -109,7 +111,8 @@ https:<span class="hljs-regexp">//ui</span>wjs.github.io<span class="hljs-regexp
 						<details>
 							<summary>iOS: -canOpenURL: failed for URL: "weixin://".</summary>
 							<blockquote>
-							<pre><code>-<span class="hljs-attr">canOpenURL:</span> failed <span class="hljs-keyword">for</span> <span class="hljs-attr">URL:</span> <span class="hljs-string">&quot;weixin://&quot;</span> - <span class="hljs-attr">error:</span> <span class="hljs-string">&quot;The operation couldn’t be completed. (OSStatus error -10814.)&quot;</span></code></pre></blockquote>
+								<pre><code>-<span class="hljs-attr">canOpenURL:</span> failed <span class="hljs-keyword">for</span> <span class="hljs-attr">URL:</span> <span class="hljs-string">&quot;weixin://&quot;</span> - <span class="hljs-attr">error:</span> <span class="hljs-string">&quot;The operation couldn’t be completed. (OSStatus error -10814.)&quot;</span></code></pre>
+							</blockquote>
 							<p>设置 URL Schemes 并列为白名单，在 <a href="https://github.com/uiwjs/react-native-wechat/blob/f6caea5b7d58dd05b7fc110ff76295c5e2be927b/example/ios/example/Info.plist#L23-L43"><code>ios/&lt;应用名称&gt;/Info.plist</code></a> 中添加</p>
 							<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>CFBundleURLTypes<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
